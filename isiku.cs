@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace OOPisik
 {
-    public class IdCode
+    public class isiku
     {
         private readonly string _idCode;
 
-        public IdCode(string idCode)
+        public isiku(string idCode)
         {
             _idCode = idCode;
         }
@@ -150,31 +150,97 @@ namespace OOPisik
             int year = GetFullYear();
             return new DateOnly(year, month, day);
         }
-       //------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------
 
+        public string GetGender()
+        {
+            string viga = "viga";
+            int genderNumber = GetGenderNumber();
+            string mees = "Mees";
+            string naine = "Naine";
+            if (genderNumber == 1 || genderNumber == 3 || genderNumber == 5) { return mees; }
+            else if (genderNumber == 2 || genderNumber == 4 || genderNumber == 6) { return naine; }
+            else { return viga; }
+        }
 
-        //public static Menu()
-        //{
-        //    Console.WriteLine("                          Menu:\n");
-        //    Console.WriteLine("[1]- Vaata kõik info isikukoodust ");
+        public int age()
+        {
+            int year = GetFullYear();
+            int age = DateTime.Now.Year - year;
+            return age;
+        }
 
+        public static void haigla(string IdCode)
+        {
+            string isik = IdCode.Substring(7, 3);
+            int t = int.Parse(isik);
+            string haigla = "";
 
-        //    int ans = 0;
-        //    if (ans == 0)
-        //    {
-                
-        //    }
-        //    else (ans == 1)
-        //    {
+            if (t >= 1 && t <= 10)
+            {
+                Console.WriteLine("Kuressaare haigla");
+            }
+            else if (t >= 11 && t <= 19)
+            {
+                Console.WriteLine("Tartu Ülikooli Naistekliinik");
+            }
+            else if (t >= 21 && t <= 150)
+            {
+                Console.WriteLine("Ida-Tallinna keskhaigla, Pelgulinna sünnitusmaja (Tallinn)");
+            }
+            else if (t >= 151 && t <= 160)
+            {
+                Console.WriteLine("Keila haigla");
+            }
+            else if (t >= 161 && t <= 220)
+            {
+                Console.WriteLine("Rapla haigla, Loksa haigla, Hiiumaa haigla (Kärdla)");
+            }
+            else if (t >= 221 && t <= 270)
+            {
+                Console.WriteLine("Ida-Viru keskhaigla (Kohtla-Järve, endine Jõhvi)");
+            }
+            else if (t >= 271 && t <= 370)
+            {
+                Console.WriteLine("Maarjamõisa kliinikum (Tartu), Jõgeva haigla");
+            }
+            else if (t >= 371 && t <= 420)
+            {
+                Console.WriteLine("Narva haigla");
+            }
+            else if (t >= 421 && t <= 470)
+            {
+                Console.WriteLine("Pärnu haigla");
+            }
+            else if (t >= 471 && t <= 490)
+            {
+                Console.WriteLine("Haapsalu haigla");
+            }
+            else if (t >= 491 && t <= 520)
+            {
+                Console.WriteLine("Järvamaa haigla (Paide)");
+            }
+            else if (t >= 521 && t <= 570)
+            {
+                Console.WriteLine("Rakvere haigla, Tapa haigla");
+            }
+            else if (t >= 571 && t <= 600)
+            {
+                Console.WriteLine("Valga haigla");
+            }
+            else if (t >= 601 && t <= 650)
+            {
+                Console.WriteLine("Viljandi haigla");
+            }
+            else if (t >= 651 && t <= 700)
+            {
+                Console.WriteLine("Lõuna-Eesti haigla (Võru), Põlva haigla");
+            }
+            else
+            {
+                Console.WriteLine("Midagi läks valesti!");
+            }
 
-        //    }
-        //}
-
-        //public bool AgeOfPers(IdCode idcode)
-        //{
-        //    GetBirthDate();
-        //}
-
-
+        }
     }
 }
